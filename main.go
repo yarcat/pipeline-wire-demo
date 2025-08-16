@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"reflect"
+	"strings"
 
 	"golang.org/x/sync/errgroup"
 )
@@ -51,7 +52,7 @@ func ComputeAB(ctx context.Context) (AB, error) {
 	if err := eg.Wait(); err != nil {
 		return "", err
 	}
-	return computeFor[AB](string(a) + string(b))
+	return computeFor[AB](strings.Join([]string{string(a), string(b)}, ","))
 }
 
 func ComputeDEF(ctx context.Context, in C) (DEF, error) {
@@ -67,7 +68,7 @@ func ComputeDEF(ctx context.Context, in C) (DEF, error) {
 	if err := eg.Wait(); err != nil {
 		return "", err
 	}
-	return computeFor[DEF](string(d) + string(e) + string(f))
+	return computeFor[DEF](strings.Join([]string{string(d), string(e), string(f)}, ","))
 }
 
 func main() {
