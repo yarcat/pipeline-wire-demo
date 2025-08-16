@@ -21,5 +21,5 @@ go generate
 go run .
 
 # Output:
-# G(DEF(D(C(AB(AB)))E(C(AB(AB)))F(C(AB(AB))))) <nil>
+# G(DEF(D(C(AB(A,B))),E(C(AB(A,B))),F(C(AB(A,B))))) <nil>
 ```
